@@ -8,19 +8,22 @@
 import random
 i=0
 X=random.choice(["красный", "оранжевый", "желтый", "зеленый", "голубой", "синий", "фиолетовый"])
-Z=len(X)
 Y="Цвет"
-print(Z)
+Z=len(X)
 while X!=Y:
+    print("---------------------")
     Y=input("Введите слово или букву\n")
-if X!=Y and len(Y) == 1:
     if len(Y) == 1:
-        while i<=Z:
+        for i in range(Z):
             if X[i]==Y:
-                print("Такая буква есть")
+                D=1
+                break
             else:
-                i+=1;
+                D=0
+        if D==1:
+            print("Вы угадали букву")
+        else:
+            print("Такой буквы нет")
     else:
-        print("Введите либо букву либо ответ!")
-else:
-    print("Верный ответ")
+        print("Верный ответ")
+        break

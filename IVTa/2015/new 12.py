@@ -3,16 +3,66 @@
 #гл. 6).
 # Gilfanov A. I.
 # 29.09.2016
-XY11="-"
-XY12="-"
-XY13="-"
-XY21="-"
-XY22="-"
-XY23="-"
-XY31="-"
-XY32="-"
-XY33="-"
-while(((XY11 and XY12 and XY13)=="0" or "X") or ((XY11 and XY22 and XY33)=="0" or "X") or ((XY11 and XY21 and XY31)=="0" or "X") or ((XY12 and XY22 and XY32)=="0" or "X") or ((XY31 and XY32 and XY33)=="0" or "X") or ((XY21 and XY22 and XY23)=="0" or "X") or ((XY13 and XY23 and XY33)=="0" or "X") or ((XY31 and XY22 and XY13)=="0" or "X"))
-print('\n',XY11, XY21, XY31,'\n',XY12, XY22, XY32,'\n',XY13, XY23, XY33)
-X=input("Введите координату по X")
-Y=input("Введите координату по Y")
+i=0
+x=0
+pole = ["[1]","[2]","[3]","[4]","[5]","[6]","[7]","[8]","[9]"]
+print("Игра крестики нолики для того чтобы походить укажите номур ячейки для хода")
+print(pole[0],pole[1],pole[2])
+print(pole[3],pole[4],pole[5])
+print(pole[6],pole[7],pole[8])
+while True:
+    if pole[0]==pole[1] and pole[1]==pole[2]:
+        print("Выйграл: ",pole[1])
+        break
+    elif pole[3]==pole[4] and pole[4]==pole[5]:
+        print("Выйграл: ",pole[4])
+        break
+    elif pole[6]==pole[7] and pole[7]==pole[8]:
+        print("Выйграл: ",pole[7])
+        break
+    elif pole[0]==pole[3] and pole[3]==pole[6]:
+        print("Выйграл: ",pole[3])
+        break
+    elif pole[1]==pole[4] and pole[4]==pole[7]:
+        print("Выйграл: ",pole[1])
+        break
+    elif pole[2]==pole[5] and pole[5]==pole[8]:
+        print("Выйграл: ",pole[1])
+        break
+    elif pole[2]==pole[4] and pole[4]==pole[6]:
+        print("Выйграл: ",pole[1])
+        break
+    elif pole[0]==pole[4] and pole[4]==pole[8]:
+        print("Выйграл: ",pole[1])
+        break
+    i+=1
+    if i%2==0:
+        while True:
+            Z=int(input("Нолики: "))
+            if pole[Z-1]=="[X]":
+                print("Выберете другую клетку")
+                continue
+            elif pole[Z-1]=="[0]":
+                print("Выберете другую клетку")
+                continue
+            else:
+                pole[Z-1]="[0]"
+                print(pole[0],pole[1],pole[2])
+                print(pole[3],pole[4],pole[5])
+                print(pole[6],pole[7],pole[8])
+                break
+    else:
+        while True:
+            Z=int(input("Крестики: "))
+            if pole[Z-1]=="[X]":
+                print("Выберете другую клетку")
+                continue
+            elif pole[Z-1]=="[0]":
+                print("Выберете другую клетку")
+                continue
+            else:
+                pole[Z-1]="[X]"
+                print(pole[0],pole[1],pole[2])
+                print(pole[3],pole[4],pole[5])
+                print(pole[6],pole[7],pole[8])
+                break
